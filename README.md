@@ -43,19 +43,19 @@ Service web SOAP développé avec Jakarta XML Web Services (JAX-WS) permettant d
 3. Vérifiez le message de confirmation dans la console :
    ```
    Service web publié avec succès !
-   URL du service : http://localhost:8080/calculatrice
-   WSDL disponible à : http://localhost:8080/calculatrice?wsdl
+   URL du service : http://localhost:8686/calculatrice
+   WSDL disponible à : http://localhost:8686/calculatrice?wsdl
    ```
 
 ### Vérifier le WSDL
-Ouvrez dans votre navigateur : `http://localhost:8080/calculatrice?wsdl`
+Ouvrez dans votre navigateur : `http://localhost:8686/calculatrice?wsdl`
 
 ## 🧪 Tests avec SOAPUI
 
 ### Configuration
 1. Lancez SOAPUI
 2. Créez un nouveau projet SOAP
-3. Importez le WSDL : `http://localhost:8080/calculatrice?wsdl`
+3. Importez le WSDL : `http://localhost:8686/calculatrice?wsdl`
 
 ### Exemple de requête - Addition
 ```xml
@@ -131,7 +131,7 @@ Exemple de réponse d'erreur :
 ## 🐛 Résolution de Problèmes
 
 ### Le serveur ne démarre pas
-- Vérifiez que le port 8080 est libre
+- Vérifiez que le port 8686 est libre
 - Modifiez l'URL si nécessaire dans `ServeurJWS.java`
 
 ### SOAPUI ne charge pas le WSDL
