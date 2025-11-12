@@ -28,7 +28,7 @@ Service web SOAP développé avec Jakarta XML Web Services (JAX-WS) permettant d
 ### Installation
 1. Clonez le repository :
    ```bash
-   git clone [URL_DE_VOTRE_REPO]
+   git clone https://github.com/Hsan-Kh/TP2-SOA2025
    cd CalculatriceWS
    ```
 
