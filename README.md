@@ -29,7 +29,6 @@ Service web SOAP développé avec Jakarta XML Web Services (JAX-WS) permettant d
 1. Clonez le repository :
    ```bash
    git clone https://github.com/Hsan-Kh/TP2-SOA2025
-   cd CalculatriceWS
    ```
 
 2. Importez le projet dans IntelliJ comme projet Maven
