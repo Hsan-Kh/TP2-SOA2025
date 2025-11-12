@@ -14,21 +14,18 @@ public interface ICalculatrice {
 
 
     @WebMethod(operationName = "somme")
-    double somme(@WebParam(name = "a") double a,
-                 @WebParam(name = "b") double b);
+    double somme(@WebParam(name = "a") double a,@WebParam(name = "b") double b);
 
 
     @WebMethod(operationName = "multiplication")
-    double multiplication(@WebParam(name = "a") double a,
-                          @WebParam(name = "b") double b);
+    double multiplication(@WebParam(name = "a") double a,@WebParam(name = "b") double b);
 
 
     @WebMethod(operationName = "soustraction")
-    double soustraction(@WebParam(name = "a") double a,
-                        @WebParam(name = "b") double b);
+    double soustraction(@WebParam(name = "a") double a,@WebParam(name = "b") double b);
 
 
     @WebMethod(operationName = "division")
-    double division(@WebParam(name = "a") double a,
-                    @WebParam(name = "b") double b);
+    double division(@WebParam(name = "a") double a,@WebParam(name = "b") double b);
+
 }
