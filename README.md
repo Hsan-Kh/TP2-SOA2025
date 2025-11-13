@@ -586,7 +586,7 @@ Novembre 2025
 - **Repository GitHub** : https://github.com/Hsan-Kh/TP2-SOA2025
 
 ## 📄 Licence
-Projet académique - Usage éducatif uniquement
+Ce projet est sous licence MIT - voir le fichier LICENSE pour plus de détails.
 
 ---
 
