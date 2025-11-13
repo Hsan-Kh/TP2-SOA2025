@@ -26,7 +26,7 @@ public class ClientSOAP {
             System.out.println("Connexion au service web...");
             CalculatriceService service = new CalculatriceService();
             port = service.getCalculatricePort();
-            System.out.println("✓ Connexion établie avec succès !\n");
+            System.out.println(" Connexion établie avec succès !\n");
 
             // Boucle du menu principal
             boolean continuer = true;
@@ -37,7 +37,7 @@ public class ClientSOAP {
             System.out.println("\nMerci d'avoir utilisé le client SOAP !");
 
         } catch (Exception e) {
-            System.err.println("✗ Erreur de connexion au service :");
+            System.err.println(" Erreur de connexion au service :");
             System.err.println("  " + e.getMessage());
             System.err.println("\nAssurez-vous que le serveur est démarré.");
         } finally {
@@ -72,7 +72,7 @@ public class ClientSOAP {
             case 0:
                 return false;
             default:
-                System.out.println("✗ Choix invalide !\n");
+                System.out.println(" Choix invalide !\n");
         }
 
         return true;
@@ -100,9 +100,9 @@ public class ClientSOAP {
 
         try {
             double resultat = port.somme(a, b);
-            System.out.println("\n✓ Résultat : " + a + " + " + b + " = " + resultat + "\n");
+            System.out.println("\n Résultat : " + a + " + " + b + " = " + resultat + "\n");
         } catch (Exception e) {
-            System.err.println("✗ Erreur : " + e.getMessage() + "\n");
+            System.err.println(" Erreur : " + e.getMessage() + "\n");
         }
     }
 
@@ -114,9 +114,9 @@ public class ClientSOAP {
 
         try {
             double resultat = port.multiplication(a, b);
-            System.out.println("\n✓ Résultat : " + a + " × " + b + " = " + resultat + "\n");
+            System.out.println("\n Résultat : " + a + " × " + b + " = " + resultat + "\n");
         } catch (Exception e) {
-            System.err.println("✗ Erreur : " + e.getMessage() + "\n");
+            System.err.println(" Erreur : " + e.getMessage() + "\n");
         }
     }
 
@@ -128,9 +128,9 @@ public class ClientSOAP {
 
         try {
             double resultat = port.soustraction(a, b);
-            System.out.println("\n✓ Résultat : " + a + " - " + b + " = " + resultat + "\n");
+            System.out.println("\n Résultat : " + a + " - " + b + " = " + resultat + "\n");
         } catch (Exception e) {
-            System.err.println("✗ Erreur : " + e.getMessage() + "\n");
+            System.err.println(" Erreur : " + e.getMessage() + "\n");
         }
     }
 
@@ -142,9 +142,9 @@ public class ClientSOAP {
 
         try {
             double resultat = port.division(a, b);
-            System.out.println("\n✓ Résultat : " + a + " ÷ " + b + " = " + resultat + "\n");
+            System.out.println("\n Résultat : " + a + " ÷ " + b + " = " + resultat + "\n");
         } catch (Exception e) {
-            System.err.println("✗ Erreur : " + e.getMessage());
+            System.err.println(" Erreur : " + e.getMessage());
             System.err.println("  (Division par zéro ?)\n");
         }
     }
@@ -178,21 +178,19 @@ public class ClientSOAP {
             System.out.print("Test 5 - Division par zéro : ");
             try {
                 port.division(10, 0);
-                System.out.println("✗ ÉCHEC (pas d'exception)");
+                System.out.println(" ÉCHEC (pas d'exception)");
             } catch (Exception e) {
-                System.out.println("✓ Exception capturée");
+                System.out.println(" Exception capturée");
             }
 
-            System.out.println("\n✓ Tous les tests terminés !\n");
+            System.out.println("\n Tous les tests terminés !\n");
 
         } catch (Exception e) {
-            System.err.println("✗ Erreur pendant les tests : " + e.getMessage() + "\n");
+            System.err.println(" Erreur pendant les tests : " + e.getMessage() + "\n");
         }
     }
 
-    /**
-     * Lit un nombre décimal depuis la console
-     */
+
     private static double lireNombre(String message) {
         System.out.print(message);
         while (!scanner.hasNextDouble()) {
@@ -202,9 +200,7 @@ public class ClientSOAP {
         return scanner.nextDouble();
     }
 
-    /**
-     * Lit un entier depuis la console
-     */
+
     private static int lireEntier() {
         while (!scanner.hasNextInt()) {
             System.out.print("Erreur ! Entrez un nombre entier : ");
@@ -212,4 +208,5 @@ public class ClientSOAP {
         }
         return scanner.nextInt();
     }
+
 }
