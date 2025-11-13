@@ -147,8 +147,7 @@ Définit le nom d'un paramètre dans le message SOAP.
 **Exemple :**
 ```java
 @WebMethod(operationName = "somme")
-public double somme(@WebParam(name = "a") double a, 
-                   @WebParam(name = "b") double b)
+public double somme(@WebParam(name = "a") double a, @WebParam(name = "b") double b)
 ```
 
 ### Analyse du WSDL
