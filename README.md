@@ -41,7 +41,6 @@ Projet complet d'un service web SOAP développé avec Jakarta XML Web Services (
 1. Clonez le repository :
    ```bash
    git clone https://github.com/Hsan-Kh/TP2-SOA2025
-   cd CalculatriceWS
    ```
 
 2. Importez le projet dans IntelliJ comme projet Maven
@@ -52,20 +51,9 @@ Projet complet d'un service web SOAP développé avec Jakarta XML Web Services (
 
 #### Démarrer le serveur
 1. Ouvrez la classe `ServeurJWS.java` dans le package `serveur`
-2. Exécutez la méthode `main` (clic droit → Run)
-3. Vérifiez le message de confirmation dans la console :
-   ```
-   ======================================
-   Démarrage du serveur JAX-WS...
-   ======================================
-   ✓ Service web publié avec succès !
-   ✓ URL du service : http://localhost:8686/calculatrice
-   ✓ WSDL disponible à : http://localhost:8686/calculatrice?wsdl
-   ======================================
-   Le serveur est en écoute...
-   Appuyez sur Ctrl+C pour arrêter
-   ======================================
-   ```
+2. Exécutez la 
+3. Vérifiez le message de confirmation dans la console 
+
 
 #### Vérifier le WSDL
 Ouvrez dans votre navigateur : `http://localhost:8686/calculatrice?wsdl`
@@ -85,8 +73,7 @@ Vous devriez voir le document WSDL XML complet définissant le contrat du servic
 
 #### Exemple de requête - Addition
 ```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-                  xmlns:ser="http://service.calculatrice.com/">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.calculatrice.com/">
    <soapenv:Header/>
    <soapenv:Body>
       <ser:somme>
@@ -303,7 +290,7 @@ mvn clean jaxws:wsimport
 
 Les classes proxy sont générées dans :
 ```
-target/generated-sources/wsimport/clientsoap/generated/
+target/generated-sources/wsimport/client/generated/
 ├── ICalculatrice.java              # Interface du proxy (Port)
 ├── CalculatriceService.java        # Factory du service
 ├── Division.java
@@ -339,15 +326,15 @@ CalculatriceService service = new CalculatriceService();
 ICalculatrice port = service.getCalculatricePort();
 ```
 
-#### Client Simple (ClientSOAP.java)
+#### Client Simple (exemple)
 
 ```java
 package client;
 
-import clientsoap.generated.ICalculatrice;
-import clientsoap.generated.CalculatriceService;
+import client.generated.ICalculatrice;
+import client.generated.CalculatriceService;
 
-public class ClientSOAP {
+public class ClientSimple {
     public static void main(String[] args) {
         try {
             System.out.println("=== Client SOAP - Service Calculatrice ===\n");
@@ -382,19 +369,9 @@ public class ClientSOAP {
 
 #### Exécution du Client
 
-1. **Assurez-vous que le serveur est démarré** ✅
+1. **Assurez-vous que le serveur est démarré** 
 2. Exécutez `ClientSOAP.java`
-3. Résultat attendu :
-   ```
-   === Client SOAP - Service Calculatrice ===
 
-   15.5 + 24.5 = 40.0
-   5 × 7 = 35.0
-   100 - 37 = 63.0
-   20 ÷ 4 = 5.0
-
-   ✓ Tous les tests réussis !
-   ```
 
 ### Flux de Communication SOAP
 
@@ -503,7 +480,7 @@ Elle demande au serveur de streamer le contenu.
 
 ### Problèmes Client
 
-#### Erreur "Package clientsoap.generated does not exist"
+#### Erreur "Package client.generated does not exist"
 **Cause :** Les classes proxy n'ont pas été générées
 
 **Solution :**
@@ -531,17 +508,6 @@ Elle demande au serveur de streamer le contenu.
 #### Erreur "Cannot resolve symbol 'Calculatrice'"
 **Cause :** Vous essayez d'importer la classe d'implémentation qui n'existe pas côté client
 
-**Solution :** Utilisez `ICalculatrice` (l'interface du proxy) :
-```java
-// ❌ INCORRECT
-import clientsoap.generated.Calculatrice;  // N'existe pas !
-
-// ✅ CORRECT
-import clientsoap.generated.ICalculatrice;
-import clientsoap.generated.CalculatriceService;
-```
-
-**Explication :** Le client n'a pas besoin de la classe `Calculatrice` qui contient l'implémentation métier. Il utilise uniquement l'interface `ICalculatrice` via le proxy.
 
 ### Problèmes Maven
 
@@ -607,72 +573,8 @@ mvn clean install -U
 
 ---
 
-## 🎓 Pour Votre Rapport
 
-### Sections Importantes à Inclure
 
-#### 1. Introduction
-- Contexte et objectifs du TP
-- Description du service développé
-
-#### 2. Architecture du Projet
-- Diagramme de l'architecture client-serveur
-- Explication du flux de communication SOAP
-- Rôle de chaque composant
-
-#### 3. Implémentation du Serveur
-- Code source avec explications
-- Annotations JAX-WS utilisées
-- Méthode de publication du service
-
-#### 4. Analyse du WSDL
-- Structure du WSDL généré
-- Correspondance entre le code Java et le WSDL
-- Explication des différentes sections (types, messages, portType, binding, service)
-
-#### 5. Génération du Client
-- Processus wsimport étape par étape
-- Classes générées et leur rôle
-- Comparaison avec CORBA (idlj)
-
-#### 6. Tests et Résultats
-- Tests avec SOAPUI (captures d'écran)
-- Exécution du client Java (résultats)
-- Test de la gestion d'erreur
-
-#### 7. Conclusion
-- Avantages de l'architecture SOA
-- Apports pédagogiques du TP
-
----
-
-## ✅ Checklist de Validation
-
-### Serveur
-- [ ] Le serveur démarre sans erreur
-- [ ] Le message "Service publié avec succès" s'affiche
-- [ ] Le WSDL est accessible dans le navigateur (`http://localhost:8686/calculatrice?wsdl`)
-- [ ] Toutes les opérations sont testées dans SOAPUI
-- [ ] Les résultats des calculs sont corrects
-- [ ] La gestion d'erreur fonctionne (division par zéro)
-- [ ] Les logs du serveur montrent les appels reçus
-
-### Client
-- [ ] Les classes proxy sont générées dans `target/generated-sources/`
-- [ ] Le dossier `wsimport` est marqué comme Generated Sources Root
-- [ ] Le code client compile sans erreur
-- [ ] Le client s'exécute et affiche les résultats corrects
-- [ ] Les deux consoles (serveur + client) montrent l'activité
-- [ ] Le client gère correctement les exceptions
-
-### Documentation
-- [ ] README complet et à jour
-- [ ] Code source commenté
-- [ ] Captures d'écran prises (SOAPUI, exécution, WSDL)
-- [ ] Rapport Word/PDF rédigé
-- [ ] Repository Git à jour
-
----
 
 ## 👤 Auteur
 **Hsan Khecharem**  
