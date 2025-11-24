@@ -1,9 +1,9 @@
 # CalculatriceWS - Service Web SOAP avec Client
 
-## 📋 Description
+##  Description
 Projet complet d'un service web SOAP développé avec Jakarta XML Web Services (JAX-WS) permettant d'effectuer des opérations mathématiques de base : addition, soustraction, multiplication et division. Le projet comprend à la fois le serveur et le client SOAP.
 
-## 🎓 Contexte Académique
+##  Contexte Académique
 - **Matière** : Architecture SOA et Services Web
 - **Filière** : LSI3-GLSI
 - **TP2** : Mise en œuvre de Jakarta XML Web Services
@@ -14,7 +14,7 @@ Projet complet d'un service web SOAP développé avec Jakarta XML Web Services (
   - Comprendre l'architecture client-serveur distribuée
   - Tester les services avec SOAPUI
 
-## 🛠️ Technologies Utilisées
+##  Technologies Utilisées
 - **Java** : JDK 11 ou supérieur
 - **Jakarta XML Web Services (JAX-WS)** : 4.0.0
 - **JAX-WS RT** : 4.0.2
@@ -27,7 +27,7 @@ Projet complet d'un service web SOAP développé avec Jakarta XML Web Services (
 
 ---
 
-## 🚀 PARTIE 1 : SERVICE WEB (SERVEUR)
+##  PARTIE 1 : SERVICE WEB (SERVEUR)
 
 ### Installation et Configuration
 
@@ -209,7 +209,7 @@ Le service lève une `ArithmeticException` si le diviseur est 0.
 
 ---
 
-## 💻 PARTIE 2 : CLIENT SOAP
+##  PARTIE 2 : CLIENT SOAP
 
 ### Introduction au Client SOAP
 
@@ -432,8 +432,8 @@ Le proxy ne contient PAS le code de calcul (`a + b`), il envoie juste la requêt
 #### 3. Analogie Simple
 
 ```
-Client = Application mobile Netflix 📱
-Serveur = Serveurs Netflix avec les films 🎬
+Client = Application mobile Netflix 
+Serveur = Serveurs Netflix avec les films 
 
 L'application ne contient PAS les films !
 Elle demande au serveur de streamer le contenu.
@@ -459,7 +459,7 @@ Elle demande au serveur de streamer le contenu.
 
 ---
 
-## 🐛 Résolution de Problèmes
+##  Résolution de Problèmes
 
 ### Problèmes Serveur
 
@@ -518,13 +518,13 @@ mvn clean install -U
 #### Le plugin jaxws n'apparaît pas dans Maven Tool Window
 **Solution :**
 1. Clic droit sur le projet dans Maven Tool Window
-2. **Reload Project** 🔄
+2. **Reload Project** 
 3. Attendez le téléchargement des dépendances
 4. Vérifiez votre connexion Internet
 
 ---
 
-## 📚 Ressources et Documentation
+##  Ressources et Documentation
 
 ### Documentation Officielle
 - [Jakarta XML Web Services Specification](https://jakarta.ee/specifications/xml-web-services/)
@@ -539,7 +539,7 @@ mvn clean install -U
 
 ---
 
-## 📝 Concepts Clés à Retenir
+##  Concepts Clés à Retenir
 
 ### Architecture SOA (Service-Oriented Architecture)
 - **Service** : Unité fonctionnelle autonome, réutilisable et accessible via le réseau
@@ -575,19 +575,18 @@ mvn clean install -U
 
 
 
-## 👤 Auteur
+##  Auteur
 **Hsan Khecharem**  
 LSI3-GLSI - Architecture SOA et Services Web
 
-## 📅 Date
+##  Date
 Novembre 2025
 
-## 🔗 Liens du Projet
+##  Liens du Projet
 - **Repository GitHub** : https://github.com/Hsan-Kh/TP2-SOA2025
 
-## 📄 Licence
+##  Licence
 Ce projet est sous licence MIT - voir le fichier LICENSE pour plus de détails.
 
 ---
 
-**🎉 Félicitations ! Vous avez maintenant un service web SOAP complet avec serveur et client fonctionnels !**
